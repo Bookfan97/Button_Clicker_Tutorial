@@ -26,6 +26,8 @@ function love.mousepressed(x, y, b, isTouch)
   if b == 1 then
     if distanceBetween(button.x, button.y, love.mouse.getX(), love.mouse.getY()) < button.size then
       score = score + 1
+      button.x = math.random(button.size, love.graphics.getWidth()-button.size)
+      button.y = math.random(button.size, love.graphics.getHeight()-button.size)
     end
   end
 end
