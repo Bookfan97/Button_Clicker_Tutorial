@@ -24,6 +24,12 @@ end
 
 function love.mousepressed(x, y, b, isTouch)
   if b == 1 then
-    --body...
+    if distanceBetween(button.x, button.y, love.mouse.getX(), love.mouse.getY()) < button.size then
+      score = score + 1
+    end
   end
+end
+
+function distanceBetween(x1, y1, x2, y2)
+  return math.sqrt((y2-y1)^2 +(x2-x1)^2)
 end
