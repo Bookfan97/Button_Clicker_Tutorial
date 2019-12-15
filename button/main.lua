@@ -21,7 +21,6 @@ function love.update(dt)
       timer = 0
       gameState = 1
       Score = 0
-      timer = 10
     end
   end
 end
@@ -35,9 +34,12 @@ function love.draw()
   -- Score --
   love.graphics.setColor(255, 255, 255)
   love.graphics.setFont(myFont)
-  love.graphics.print(score)
+  love.graphics.print("Score: " .. score)
   -- Timer --
-  love.graphics.print(math.ceil(timer), 100, 0)
+  love.graphics.print("Time: " .. math.ceil(timer), 300, 0)
+  if gameState == 1 then
+    love.graphics.printf("Click anywhere to begin", 0, love.graphics.getHeight()/2, love.graphics.getWidth(), "center")
+  end
 end
 
 function love.mousepressed(x, y, b, isTouch)
@@ -50,6 +52,8 @@ function love.mousepressed(x, y, b, isTouch)
   end
   if gameState == 1 then
     gameState = 2
+    timer = 10
+    score = 0
   end
 end
 
